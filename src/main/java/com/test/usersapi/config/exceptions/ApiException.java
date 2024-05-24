@@ -2,10 +2,10 @@ package com.test.usersapi.config.exceptions;
 
 import lombok.Data;
 @Data
-public class ApiError {
+public class ApiException {
     private String message;
 
-    public ApiError( String message ) {
+    public ApiException(String message ) {
         super();
         this.message = message;
     }

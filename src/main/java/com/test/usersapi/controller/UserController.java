@@ -1,10 +1,10 @@
 package com.test.usersapi.controller;
 
 import com.test.usersapi.config.exceptions.CustomException;
-import com.test.usersapi.controller.dto.UserLoginRequest;
-import com.test.usersapi.controller.dto.UserLoginResponse;
-import com.test.usersapi.controller.dto.UserRequest;
-import com.test.usersapi.controller.dto.UserResponse;
+import com.test.usersapi.controller.dto.UserLoginRequestDto;
+import com.test.usersapi.controller.dto.UserLoginResponseDto;
+import com.test.usersapi.controller.dto.UserRequestDto;
+import com.test.usersapi.controller.dto.UserResponseDto;
 import com.test.usersapi.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -27,12 +27,12 @@ public class UserController {
     }
 
     @PostMapping("/create")
-    public ResponseEntity<UserResponse> create(@RequestBody @Valid UserRequest request) throws CustomException {
+    public ResponseEntity<UserResponseDto> create(@RequestBody @Valid UserRequestDto request) throws CustomException {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(request));
     }
 
     @PostMapping("/login")
-    public ResponseEntity<UserLoginResponse> login(@RequestBody @Valid UserLoginRequest request) throws CustomException {
+    public ResponseEntity<UserLoginResponseDto> login(@RequestBody @Valid UserLoginRequestDto request) throws CustomException {
         return ResponseEntity.status(HttpStatus.OK).body(userService.login(request));
     }
 }

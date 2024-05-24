@@ -1,6 +1,6 @@
 package com.test.usersapi.mapper;
 
-import com.test.usersapi.controller.dto.PhoneRequest;
+import com.test.usersapi.controller.dto.PhoneRequestDto;
 import com.test.usersapi.domain.entity.PhoneEntity;
 import com.test.usersapi.domain.entity.UserEntity;
 import java.util.ArrayList;
@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class PhoneMapper {
 
-    public static List<PhoneEntity> dtoToEntity(List<PhoneRequest> phonesRequestList, UserEntity userEntity) {
+    public static List<PhoneEntity> dtoToEntity(List<PhoneRequestDto> phonesRequestList, UserEntity userEntity) {
 
         List<PhoneEntity> phoneEntityList = new ArrayList<>();
         if (phonesRequestList.isEmpty()) return phoneEntityList;

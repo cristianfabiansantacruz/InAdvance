@@ -3,7 +3,7 @@ package com.test.usersapi.util;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Constants {
+public class ConstantsUtil {
 
     public static final String EMAIL_EXIST_ERROR_MSG = "El email ya se encuentra registrado!!";
 

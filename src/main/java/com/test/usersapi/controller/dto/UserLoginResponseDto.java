@@ -8,5 +8,5 @@ package com.test.usersapi.controller.dto;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonIgnoreProperties(ignoreUnknown = true)
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public record UserLoginResponse(String token) {}
+public record UserLoginResponseDto(String token) {}
 

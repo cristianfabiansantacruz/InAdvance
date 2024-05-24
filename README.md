@@ -7,7 +7,9 @@
 - springboot
 - JWToken
 - MokitoServer
+- Swagger
 
+# Ejecutar UserApiApplication
 
 # Curl: Crear usuario
 
@@ -42,7 +44,7 @@ curl --location 'http://localhost:8080/users/login' \
 "password": "passW@rd1"
 }'
 
-- Si le usuario a loguear no existe en BD: respuesta "Email o contraseña incorrectos!!"
+- Si el usuario a loguear no existe en BD: respuesta "Email o contraseña incorrectos!!"
 - Si por el contrario el usuario se encuentra en BD entonces se actualiza los campos:
   "LAST_LOGIN_DATE" ---
   "MODIFIED_DATE" --- 

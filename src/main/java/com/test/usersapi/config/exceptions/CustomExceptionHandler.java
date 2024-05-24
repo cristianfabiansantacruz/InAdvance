@@ -23,10 +23,10 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             errors.add(error.getField() + ": " + error.getDefaultMessage());
         }
 
-        ApiError apiError =
-                new ApiError(errors.isEmpty() ? ex.getLocalizedMessage() : errors.stream().collect(Collectors.joining()));
+        ApiException apiException =
+                new ApiException(errors.isEmpty() ? ex.getLocalizedMessage() : errors.stream().collect(Collectors.joining()));
 
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiError);
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(apiException);
     }
 
     @ExceptionHandler({CustomException.class})
@@ -34,10 +34,10 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             CustomException ex, WebRequest request
     ){
 
-        ApiError apiError =
-                new ApiError( ex.getMessageError());
+        ApiException apiException =
+                new ApiException( ex.getMessageError());
 
-        return ResponseEntity.status(ex.getStatus()).body(apiError);
+        return ResponseEntity.status(ex.getStatus()).body(apiException);
     }
 
     @ExceptionHandler({Exception.class})
@@ -45,9 +45,9 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
             Exception ex, WebRequest request
     ){
 
-        ApiError apiError =
-                new ApiError( ex.getLocalizedMessage());
+        ApiException apiException =
+                new ApiException( ex.getLocalizedMessage());
 
-        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiError);
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(apiException);
     }
 }
